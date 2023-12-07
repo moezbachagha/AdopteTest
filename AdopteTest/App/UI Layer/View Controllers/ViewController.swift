@@ -92,5 +92,12 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
 
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        let selectedItem = ContributorsArray[indexPath.item]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ProfilViewController") as! ProfilViewController
+        controller.contibutor  = selectedItem
+        self.navigationController?.pushViewController(controller, animated:true)
+    }
 }
